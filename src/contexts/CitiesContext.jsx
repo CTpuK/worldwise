@@ -1,3 +1,5 @@
+/* eslint-disable react/prop-types */
+
 import { createContext, useState, useEffect } from 'react';
 
 const BASE_URL = 'http://localhost:8000';
@@ -23,4 +25,12 @@ function CitiesProvider({ children }) {
     }
     fetchCities();
   }, []);
+
+  return (
+    <CitiesContext.Provider value={(cities, isLoading)}>
+      {children}
+    </CitiesContext.Provider>
+  );
 }
+
+export { CitiesProvider };
