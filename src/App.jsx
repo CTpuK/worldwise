@@ -1,19 +1,26 @@
+import { lazy } from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 
-import Product from './pages/Product';
-import Pricing from './pages/Pricing';
-import Homepage from './pages/Homepage';
-import Login from './pages/Login';
-import AppLayout from './pages/AppLayout';
-import PageNotFound from './pages/PageNotFound';
+import { CitiesProvider } from './contexts/CitiesContext';
+import { AuthProvider } from './contexts/FakeAuthContext';
+import ProtectedRoute from './pages/ProtectedRoute';
+
 import CityList from './components/CityList';
 import CountryList from './components/CountryList';
 import City from './components/City';
 import Form from './components/Form';
-import ProtectedRoute from './pages/ProtectedRoute';
 
-import { CitiesProvider } from './contexts/CitiesContext';
-import { AuthProvider } from './contexts/FakeAuthContext';
+// import Product from './pages/Product';
+// import Pricing from './pages/Pricing';
+// import Homepage from './pages/Homepage';
+// import Login from './pages/Login';
+// import AppLayout from './pages/AppLayout';
+// import PageNotFound from './pages/PageNotFound';
+
+const Homepage = lazy(() => import('./pages/Homepage'));
+
+// dist/assets/index-d09c54bf.css   31.35 kB │ gzip:   5.24 kB
+// dist/assets/index-1eece4b1.js   527.33 kB │ gzip: 149.37 kB
 
 function App() {
   return (
